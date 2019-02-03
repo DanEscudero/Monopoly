@@ -1,2 +1,3 @@
 # Monopoly
-Monopoly game in js
+
+¯\\\_(ツ)\_/¯
