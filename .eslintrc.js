@@ -16,6 +16,7 @@ module.exports = {
 		'no-console': 'off',
 		'no-debugger': 'warn',
 		'no-lone-blocks': 'error',
-		'space-before-function-paren': ['error', 'always']
+		'space-before-function-paren': ['error', 'always'],
+		'max-len': ['error', { code: 120 }]
 	}
 };
