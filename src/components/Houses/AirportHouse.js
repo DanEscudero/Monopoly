@@ -1,30 +1,33 @@
-import * as PIXI from 'pixi.js';
 import { AbstractHouse } from './AbstractHouse';
-import { getColorByGroup } from '../../utils/ColorGroup';
+import * as PIXI from 'pixi.js';
+
+import img from '../../assets/airplane.png';
 import { adjustWidth, adjustHeight } from '../../utils/adjustText';
 
-export class PropertyHouse extends AbstractHouse {
+export class AirportHouse extends AbstractHouse {
+	get planeDimensions () {
+		return { width: 128 * this._planeScale, height: 128 * this._planeScale };
+	}
+
 	/**
 	 * Returns info needed to render card miniature on board
 	 */
 	get coreInfo () {
-		const { name, colorGroup, info } = this._houseProps;
+		const { name, info } = this._houseProps;
 		const { price } = info;
 
-		return { name, colorGroup, price };
+		return { name, price };
 	}
 
 	_setup () {
 		super._setup();
+		this._airplane = new PIXI.Sprite.from(img);
+		this.addChild(this._airplane);
+		this._airplane.anchor.set(0.5, 0);
 
-		const { name, colorGroup, price } = this.coreInfo;
-		const color = getColorByGroup(colorGroup);
-		this._colorHeight = 10;
+		this._planeScale = 1;
 
-		// Setup color block
-		this._colorBlock = new PIXI.Graphics();
-		this._colorBlock.beginFill(color);
-		this.addChild(this._colorBlock);
+		const { name, price } = this.coreInfo;
 
 		const style = new PIXI.TextStyle({
 			wordWrap: true,
@@ -43,10 +46,8 @@ export class PropertyHouse extends AbstractHouse {
 
 	_render () {
 		super._render();
-		this._colorBlock.drawRect(0, 0, this._dimensions.width, this._colorHeight);
 
-		// Update text font sizes to fit
-		const nameHeight = this._dimensions.height - this._colorHeight - this._priceHeight;
+		const nameHeight = 20;
 		adjustWidth(this._name, this._dimensions.width);
 		adjustHeight(this._name, nameHeight);
 		adjustHeight(this._price, this._priceHeight);
@@ -56,13 +57,25 @@ export class PropertyHouse extends AbstractHouse {
 			const { text, style } = this._name;
 			const { width } = PIXI.TextMetrics.measureText(text, style);
 			this._name.x = (this._dimensions.width - width) / 2;
-			this._name.y = this._colorHeight;
+			this._name.y = 0;
 		}
 		{
 			const { text, style } = this._price;
 			const { height, width } = PIXI.TextMetrics.measureText(text, style);
 			this._price.x = (this._dimensions.width - width) / 2;
 			this._price.y = this._dimensions.height - height;
+		}
+
+		// Position plane, and draw plane outline
+		{
+			const planeHeight = 15;
+			this._planeScale = planeHeight / this.planeDimensions.height;
+			this._airplane.scale.set(this._planeScale);
+			this._airplane.x = this._dimensions.width / 2;
+			this._airplane.y = nameHeight;
+
+			const { width, height } = this.planeDimensions;
+			this._outline.drawRect(this._airplane.x - width / 2, this._airplane.y, width, height);
 		}
 	}
 }

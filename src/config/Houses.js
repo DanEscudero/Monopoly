@@ -30,7 +30,13 @@ export const Houses = [
 		type: 'charge'
 	},
 	{
-		type: 'airport'
+		type: 'airport',
+		properties: {
+			name: 'São Paulo',
+			info: {
+				price: 200
+			}
+		}
 	},
 	{
 		type: 'property',
@@ -102,7 +108,13 @@ export const Houses = [
 		}
 	},
 	{
-		type: 'airport'
+		type: 'airport',
+		properties: {
+			name: 'Rio de Janeiro',
+			info: {
+				price: 200
+			}
+		}
 	},
 	{
 		type: 'property',
@@ -174,7 +186,13 @@ export const Houses = [
 		}
 	},
 	{
-		type: 'airport'
+		type: 'airport',
+		properties: {
+			name: 'Salvador',
+			info: {
+				price: 200
+			}
+		}
 	},
 	{
 		type: 'property',
@@ -215,7 +233,7 @@ export const Houses = [
 	{
 		type: 'property',
 		properties: {
-			name: 'Floresta Amazõnica',
+			name: 'Floresta Amazônica',
 			colorGroup: 7,
 			info: {
 				price: 300
@@ -246,7 +264,13 @@ export const Houses = [
 		}
 	},
 	{
-		type: 'airport'
+		type: 'airport',
+		properties: {
+			name: 'Porto Alegre',
+			info: {
+				price: 200
+			}
+		}
 	},
 	{
 		type: 'lucky'

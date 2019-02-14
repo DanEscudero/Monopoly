@@ -1,7 +1,8 @@
 import * as PIXI from 'pixi.js';
 import { Board } from './components/Board';
 import { PropertyHouse } from './components/Houses/PropertyHouse';
-import { Houses } from './config/houses';
+import { Houses } from './config/Houses';
+import { AirportHouse } from './components/Houses/AirportHouse';
 
 export class MainView extends PIXI.Container {
 	constructor (dimensions) {
@@ -11,8 +12,14 @@ export class MainView extends PIXI.Container {
 		this._cellSize = { width: 39, height: 55 };
 
 		this._drawOutline();
-		// this._setupBoard();
-		this._testHouse();
+		this._setupBoard();
+		// this._testHouse();
+
+		const airport = Houses[5];
+		const h = new AirportHouse(this._cellSize, airport.properties);
+		// this.addChild(h);
+		h.x = 200;
+		h.y = 200;
 	}
 
 	_drawOutline () {
@@ -37,18 +44,16 @@ export class MainView extends PIXI.Container {
 	_testHouse () {
 		let x = 0;
 		let y = 0;
-		Houses.filter((houseInfo) => houseInfo.type === 'property').forEach(
-			(houseInfo) => {
-				const { properties } = houseInfo;
-				const house = new PropertyHouse(this._cellSize, properties);
-				this.addChild(house);
+		Houses.filter((houseInfo) => houseInfo.type === 'property').forEach((houseInfo) => {
+			const { properties } = houseInfo;
+			const house = new PropertyHouse(this._cellSize, properties);
+			this.addChild(house);
 
-				house.x = x;
-				x += 42;
-				house.y = y;
-				y = x >= 40 * 11 ? y + 60 : y;
-				x = x >= 40 * 11 ? 0 : x;
-			}
-		);
+			house.x = x;
+			x += 42;
+			house.y = y;
+			y = x >= 40 * 11 ? y + 60 : y;
+			x = x >= 40 * 11 ? 0 : x;
+		});
 	}
 }
