@@ -74,7 +74,6 @@ export class ImageHouse extends AbstractHouse {
 
 		// Position asset, and draw asset outline
 		{
-			const assetHeight = 15;
 			this._asset.scale.set(this._getAssetScale());
 			this._asset.x = this._dimensions.width / 2;
 			this._asset.y = nameHeight;

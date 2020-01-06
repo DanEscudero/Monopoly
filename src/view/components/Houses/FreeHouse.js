@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js';
 
 import { CornerHouse } from './CornerHouse';
-import { adjustWidth, adjustHeight } from '../../../utils/adjustText';
+import { adjustWidth } from '../../../utils/adjustText';
 
 import carAsset from '../../../assets/car.png';
 

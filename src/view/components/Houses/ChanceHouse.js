@@ -49,11 +49,7 @@ export class ChanceHouse extends AbstractHouse {
 			this._name.y = (this._dimensions.height - height) / 2 - offset;
 		}
 
-		// Position asset
-		{
-			const { width, height } = this.questionMarkDimensions;
-			this._questionMark.x = this._dimensions.width / 2;
-			this._questionMark.y = this._dimensions.height / 2 + offset;
-		}
+		this._questionMark.x = this._dimensions.width / 2;
+		this._questionMark.y = this._dimensions.height / 2 + offset;
 	}
 }

@@ -1,3 +1,5 @@
+import * as PIXI from 'pixi.js';
+
 import { AbstractHouse } from './AbstractHouse';
 import { adjustWidth, adjustHeight } from '../../../utils/adjustText';
 

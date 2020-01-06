@@ -33,7 +33,9 @@ export class Board extends PIXI.Container {
 		// this._debugHouses();
 	}
 
-	getHouse (index) {}
+	getHouse (index) {
+		return this._houses[index];
+	}
 
 	_drawOutline () {
 		this._guideLines.beginFill('0xffffff');
