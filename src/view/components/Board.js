@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
 
-import { Houses } from '../config/Houses';
+import { Houses } from '../../config/Houses';
 
 import { GoHouse } from './Houses/GoHouse';
 import { JailHouse } from './Houses/JailHouse';

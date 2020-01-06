@@ -1,9 +1,9 @@
 import * as PIXI from 'pixi.js';
 
 import { CornerHouse } from './CornerHouse';
-import { adjustWidth, adjustHeight } from '../../utils/adjustText';
+import { adjustWidth, adjustHeight } from '../../../utils/adjustText';
 
-import carAsset from '../../assets/car.png';
+import carAsset from '../../../assets/car.png';
 
 export class FreeHouse extends CornerHouse {
 	get carDimensions () {

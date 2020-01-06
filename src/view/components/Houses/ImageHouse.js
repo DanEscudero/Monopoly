@@ -1,7 +1,7 @@
 import { AbstractHouse } from './AbstractHouse';
 import * as PIXI from 'pixi.js';
 
-import { adjustWidth, adjustHeight } from '../../utils/adjustText';
+import { adjustWidth, adjustHeight } from '../../../utils/adjustText';
 
 // Creates house with name, image and price
 export class ImageHouse extends AbstractHouse {

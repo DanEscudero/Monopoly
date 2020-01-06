@@ -1,4 +1,4 @@
-import airplaneAsset from '../../assets/airplane.png';
+import airplaneAsset from '../../../assets/airplane.png';
 import { ImageHouse } from './ImageHouse';
 
 export class AirportHouse extends ImageHouse {

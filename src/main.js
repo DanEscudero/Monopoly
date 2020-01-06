@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import { MainView } from './MainView';
+import { MainView } from './view/MainView';
 
 const dimensions = { width: 540, height: 463 };
 const app = new PIXI.Application({

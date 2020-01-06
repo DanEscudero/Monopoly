@@ -1,9 +1,9 @@
 import * as PIXI from 'pixi.js';
 
 import { CornerHouse } from './CornerHouse';
-import { adjustWidth } from '../../utils/adjustText';
+import { adjustWidth } from '../../../utils/adjustText';
 
-import jailBarsAsset from '../../assets/jailBars.png';
+import jailBarsAsset from '../../../assets/jailBars.png';
 
 export class JailHouse extends CornerHouse {
 	get jailBarDimensions () {

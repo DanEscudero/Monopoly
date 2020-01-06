@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js';
 
 import { JailHouse } from './JailHouse';
-import { adjustWidth } from '../../utils/adjustText';
+import { adjustWidth } from '../../../utils/adjustText';
 
 export class GoToJailHouse extends JailHouse {
 	_getNameText () {

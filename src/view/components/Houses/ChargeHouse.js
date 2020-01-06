@@ -1,5 +1,5 @@
 import { AbstractHouse } from './AbstractHouse';
-import { adjustWidth, adjustHeight } from '../../utils/adjustText';
+import { adjustWidth, adjustHeight } from '../../../utils/adjustText';
 
 export class ChargeHouse extends AbstractHouse {
 	get coreInfo () {

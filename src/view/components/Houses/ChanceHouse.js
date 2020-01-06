@@ -1,9 +1,9 @@
 import * as PIXI from 'pixi.js';
 
 import { AbstractHouse } from './AbstractHouse';
-import { adjustWidth } from '../../utils/adjustText';
+import { adjustWidth } from '../../../utils/adjustText';
 
-import questionMarkAsset from '../../assets/questionMark.png';
+import questionMarkAsset from '../../../assets/questionMark.png';
 
 export class ChanceHouse extends AbstractHouse {
 	get questionMarkDimensions () {

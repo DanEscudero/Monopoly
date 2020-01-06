@@ -1,5 +1,5 @@
-import waterService from '../../assets/waterService.png';
-import lightService from '../../assets/lightService.png';
+import waterService from '../../../assets/waterService.png';
+import lightService from '../../../assets/lightService.png';
 
 import { ImageHouse } from './ImageHouse';
 

@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js';
 import { AbstractHouse } from './AbstractHouse';
-import { getColorByGroup } from '../../utils/ColorGroup';
-import { adjustWidth, adjustHeight } from '../../utils/adjustText';
+import { getColorByGroup } from '../../../utils/ColorGroup';
+import { adjustWidth, adjustHeight } from '../../../utils/adjustText';
 
 export class PropertyHouse extends AbstractHouse {
 	/**
