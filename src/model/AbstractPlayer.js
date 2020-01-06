@@ -11,17 +11,17 @@ export class AbstractPlayer {
 	}
 
 	// Abstract
-	discount (amount) {
+	discount () {
 		throw new Error('Abstract method must be implemented');
 	}
 
 	// Abstract
-	receive (amount) {
+	receive () {
 		throw new Error('Abstract method must be implemented');
 	}
 
 	// Abstract
-	canPay (amount) {
+	canPay () {
 		throw new Error('Abstract method must be implemented');
 	}
 }

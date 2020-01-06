@@ -1,11 +1,11 @@
 import { AbstractPlayer } from './AbstractPlayer';
 
 export class Bank extends AbstractPlayer {
-	discount (amount) {}
+	discount () {}
 
-	receive (amount) {}
+	receive () {}
 
-	canPay (amount) {
+	canPay () {
 		return true;
 	}
 }

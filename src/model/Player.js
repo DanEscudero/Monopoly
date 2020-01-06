@@ -1,8 +1,9 @@
+import { AbstractPlayer } from './AbstractPlayer';
 import { getPlayerColor } from '../utils/getPlayerColor';
 
 export class Player extends AbstractPlayer {
 	static createNewPlayer (index = 0) {
-		return new Player({ money: 1500, properties: [], position: [], color: getPlayerColor(index) });
+		return new Player({ money: 1500, properties: [], position: [], color: getPlayerColor(index), index });
 	}
 
 	get money () {
@@ -24,11 +25,14 @@ export class Player extends AbstractPlayer {
 		return this.properties.filter((property) => !property.isMortgaged).map((property) => property.mortgageValue);
 	}
 
-	constructor ({ money, properties, position, color }) {
+	constructor ({ money, properties, position, color, index }) {
+		super();
+
 		this._money = money;
 		this._properties = properties;
 		this._position = position;
 		this._color = color;
+		this._index = index;
 	}
 
 	discount (amount) {
