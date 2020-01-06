@@ -1,15 +1,16 @@
 import * as PIXI from 'pixi.js';
 
 import { Houses } from '../config/Houses';
-import { PropertyHouse } from './Houses/PropertyHouse';
-import { AirportHouse } from './Houses/AirportHouse';
-import { JailHouse } from './Houses/JailHouse';
+
 import { GoHouse } from './Houses/GoHouse';
-import { GoToJailHouse } from './Houses/GoToJailHouse';
+import { JailHouse } from './Houses/JailHouse';
 import { FreeHouse } from './Houses/FreeHouse';
 import { ChargeHouse } from './Houses/ChargeHouse';
 import { ChanceHouse } from './Houses/ChanceHouse';
+import { AirportHouse } from './Houses/AirportHouse';
 import { ServiceHouse } from './Houses/ServiceHouse';
+import { GoToJailHouse } from './Houses/GoToJailHouse';
+import { PropertyHouse } from './Houses/PropertyHouse';
 
 export class Board extends PIXI.Container {
 	constructor (dimensions, cellDimensions) {
@@ -27,7 +28,9 @@ export class Board extends PIXI.Container {
 		this._drawOutline();
 		this._setupHouses();
 
-		this._debugHouses();
+		this._setupBank();
+
+		// this._debugHouses();
 	}
 
 	getHouse (index) {}
@@ -55,25 +58,20 @@ export class Board extends PIXI.Container {
 		for (const houseInfo of Houses) {
 			const { type } = houseInfo;
 			const houseTypes = {
-				property: PropertyHouse,
-				airport: AirportHouse,
 				go: GoHouse,
-				jail: JailHouse,
-				toJail: GoToJailHouse,
 				free: FreeHouse,
+				jail: JailHouse,
 				charge: ChargeHouse,
 				chance: ChanceHouse,
-				service: ServiceHouse
+				service: ServiceHouse,
+				airport: AirportHouse,
+				toJail: GoToJailHouse,
+				property: PropertyHouse
 			};
 
 			const HouseClass = houseTypes[type];
-			let house = houseInfo;
-
-			// TODO: this if shouldnnt be necessary
-			if (HouseClass) {
-				house = new HouseClass(this._cellDimensions, houseInfo.properties);
-				this.addChild(house);
-			}
+			const house = new HouseClass(this._cellDimensions, houseInfo.properties);
+			this.addChild(house);
 
 			this._houses.push(house);
 		}
@@ -83,46 +81,55 @@ export class Board extends PIXI.Container {
 		for (const [index, house] of this._houses.entries()) {
 			const cellWidth = this._cellDimensions.width;
 			const cellHeight = this._cellDimensions.height;
-			let x, y;
+			let x, y, rotation;
 			if (index === 0) {
 				// Position Go House
 				x = this._dimensions.width - cellHeight;
 				y = this._dimensions.height - cellHeight;
+				rotation = 0;
 			} else if (index <= 9) {
 				// Position bottom line
 				x = this._dimensions.width - cellHeight - index * cellWidth;
 				y = this._dimensions.height - this._cellDimensions.height;
+				rotation = 0;
 			} else if (index === 10) {
 				// Position Jail
 				x = 0;
 				y = this._dimensions.height - this._cellDimensions.height;
+				rotation = 0;
 			} else if (index <= 19) {
 				// Position left line
 				x = cellHeight;
 				y = this._dimensions.height - cellHeight - (index - 10) * cellWidth;
-				house.rotation = Math.PI / 2;
+				rotation = 0;
+				rotation = Math.PI / 2;
 			} else if (index === 20) {
 				// Position free stop
 				x = 0;
 				y = 0;
+				rotation = 0;
 			} else if (index <= 29) {
 				// Position upper line
 				x = cellHeight + (index - 20) * cellWidth;
 				y = cellHeight;
-				house.rotation = Math.PI;
+				rotation = 0;
+				rotation = Math.PI;
 			} else if (index === 30) {
 				// Position go to jail
 				x = this._dimensions.width - cellHeight;
 				y = 0;
+				rotation = 0;
 			} else if (index <= 39) {
 				// Position right line
 				x = this._dimensions.width - cellHeight;
 				y = cellHeight + (index - 30) * cellWidth;
-				house.rotation = (3 * Math.PI) / 2;
+				rotation = 0;
+				rotation = (3 * Math.PI) / 2;
 			}
 
 			house.x = x;
 			house.y = y;
+			house.rotation = rotation;
 		}
 	}
 
