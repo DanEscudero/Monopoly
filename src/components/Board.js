@@ -2,6 +2,10 @@ import * as PIXI from 'pixi.js';
 import { Houses } from '../config/Houses';
 import { PropertyHouse } from './Houses/PropertyHouse';
 import { AirportHouse } from './Houses/AirportHouse';
+import { JailHouse } from './Houses/JailHouse';
+import { GoHouse } from './Houses/GoHouse';
+import { GoToJailHouse } from './Houses/GoToJailHouse';
+import { FreeHouse } from './Houses/FreeHouse';
 
 export class Board extends PIXI.Container {
 	constructor (dimensions, cellDimensions) {
@@ -39,27 +43,36 @@ export class Board extends PIXI.Container {
 
 	_setupHouses () {
 		this._houses = [];
-		let house;
+		this._createHouses();
+		this._positionHouses();
+	}
+
+	_createHouses () {
 		for (const houseInfo of Houses) {
 			const { type } = houseInfo;
-			switch (type) {
-				case 'property':
-					house = new PropertyHouse(this._cellDimensions, houseInfo.properties);
-					this.addChild(house);
-					break;
+			const houseTypes = {
+				property: PropertyHouse,
+				airport: AirportHouse,
+				go: GoHouse,
+				jail: JailHouse,
+				toJail: GoToJailHouse,
+				free: FreeHouse
+			};
 
-				case 'airport':
-					house = new AirportHouse(this._cellDimensions, houseInfo.properties);
-					this.addChild(house);
-					break;
+			const HouseClass = houseTypes[type];
+			let house = houseInfo;
 
-				default:
-					house = houseInfo;
-					break;
+			// TODO: this if shouldnnt be necessary
+			if (HouseClass) {
+				house = new HouseClass(this._cellDimensions, houseInfo.properties);
+				this.addChild(house);
 			}
+
 			this._houses.push(house);
 		}
+	}
 
+	_positionHouses () {
 		for (const [index, house] of this._houses.entries()) {
 			const cellWidth = this._cellDimensions.width;
 			const cellHeight = this._cellDimensions.height;

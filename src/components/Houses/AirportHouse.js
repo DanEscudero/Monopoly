@@ -1,7 +1,7 @@
 import { AbstractHouse } from './AbstractHouse';
 import * as PIXI from 'pixi.js';
 
-import img from '../../assets/airplane.png';
+import airplaneAsset from '../../assets/airplane.png';
 import { adjustWidth, adjustHeight } from '../../utils/adjustText';
 
 export class AirportHouse extends AbstractHouse {
@@ -21,7 +21,8 @@ export class AirportHouse extends AbstractHouse {
 
 	_setup () {
 		super._setup();
-		this._airplane = new PIXI.Sprite.from(img);
+
+		this._airplane = new PIXI.Sprite.from(airplaneAsset);
 		this.addChild(this._airplane);
 		this._airplane.anchor.set(0.5, 0);
 

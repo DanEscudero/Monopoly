@@ -7,10 +7,24 @@ export class AbstractHouse extends PIXI.Container {
 		this._dimensions = dimensions;
 		this._houseProps = houseProps;
 
+		this._initializeHouse();
+
+		// Classes that extends this one should:
+		// Implement _setup, with call to super in the begining;
+		// Implement _render, with call to super in the begining;
+		// Implement coreInfo getter, with all information required to render house in the board.
+		// Could, optionally, implement _initializeHouse as well
+	}
+
+	_initializeHouse () {
 		this._setup();
 		this._render();
 	}
 
+	/**
+	 * Initializes outline graphics;
+	 * Setup Button mode
+	 */
 	_setup () {
 		this._outline = new PIXI.Graphics();
 		this.addChild(this._outline);
@@ -29,6 +43,9 @@ export class AbstractHouse extends PIXI.Container {
 		this._infoButton.on('click', () => console.log(this._houseProps));
 	}
 
+	/**
+	 * Draws outline
+	 */
 	_render () {
 		this._outline.lineStyle(1, '0xd0d0d0');
 		const { width, height } = this._dimensions;
