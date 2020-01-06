@@ -28,7 +28,7 @@ export class Board extends PIXI.Container {
 		this._drawOutline();
 		this._setupHouses();
 
-		this._setupBank();
+		// this._setupBank();
 
 		// this._debugHouses();
 	}

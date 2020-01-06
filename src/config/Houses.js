@@ -52,7 +52,7 @@ export const Houses = [
 	{
 		type: 'property',
 		properties: {
-			name: 'Catedreal da Sé',
+			name: 'Catedral da Sé',
 			colorGroup: 2,
 			info: {
 				price: 100
