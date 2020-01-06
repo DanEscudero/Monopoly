@@ -1,6 +1,3 @@
-import { AbstractHouse } from './AbstractHouse';
-import * as PIXI from 'pixi.js';
-
 import airplaneAsset from '../../assets/airplane.png';
 import { ImageHouse } from './ImageHouse';
 

@@ -40,7 +40,8 @@ export class AbstractHouse extends PIXI.Container {
 	}
 
 	_setupButtonEvents () {
-		this._infoButton.on('click', () => console.log(this._houseProps));
+		// TODO: react properly to house click
+		this._infoButton.on('click', () => console.log('houseProps:', this._houseProps));
 	}
 
 	/**

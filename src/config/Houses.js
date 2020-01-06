@@ -1,7 +1,12 @@
 export const Houses = [
 	{
 		type: 'go',
-		properties: {}
+		properties: {
+			name: 'Go!',
+			info: {
+				win: 200
+			}
+		}
 	},
 	{
 		type: 'property',
@@ -14,7 +19,7 @@ export const Houses = [
 		}
 	},
 	{
-		type: 'lucky'
+		type: 'chance'
 	},
 	{
 		type: 'property',
@@ -27,7 +32,13 @@ export const Houses = [
 		}
 	},
 	{
-		type: 'charge'
+		type: 'charge',
+		properties: {
+			name: 'Imposto de renda',
+			info: {
+				pay: 200
+			}
+		}
 	},
 	{
 		type: 'airport',
@@ -49,7 +60,7 @@ export const Houses = [
 		}
 	},
 	{
-		type: 'lucky'
+		type: 'chance'
 	},
 	{
 		type: 'property',
@@ -85,7 +96,14 @@ export const Houses = [
 		}
 	},
 	{
-		type: 'service'
+		type: 'service',
+		properties: {
+			name: 'Serviço de Água',
+			info: {
+				price: 150,
+				type: 'water'
+			}
+		}
 	},
 	{
 		type: 'property',
@@ -127,7 +145,7 @@ export const Houses = [
 		}
 	},
 	{
-		type: 'lucky'
+		type: 'chance'
 	},
 	{
 		type: 'property',
@@ -163,7 +181,7 @@ export const Houses = [
 		}
 	},
 	{
-		type: 'lucky'
+		type: 'chance'
 	},
 	{
 		type: 'property',
@@ -215,7 +233,14 @@ export const Houses = [
 		}
 	},
 	{
-		type: 'service'
+		type: 'service',
+		properties: {
+			name: 'Serviço de Luz',
+			info: {
+				price: 150,
+				type: 'light'
+			}
+		}
 	},
 	{
 		type: 'property',
@@ -251,7 +276,7 @@ export const Houses = [
 		}
 	},
 	{
-		type: 'lucky'
+		type: 'chance'
 	},
 	{
 		type: 'property',
@@ -273,7 +298,7 @@ export const Houses = [
 		}
 	},
 	{
-		type: 'lucky'
+		type: 'chance'
 	},
 	{
 		type: 'property',
@@ -286,7 +311,13 @@ export const Houses = [
 		}
 	},
 	{
-		type: 'charge'
+		type: 'charge',
+		properties: {
+			name: 'Aluguel',
+			info: {
+				pay: 100
+			}
+		}
 	},
 	{
 		type: 'property',

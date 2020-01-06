@@ -10,7 +10,7 @@ export class FreeHouse extends CornerHouse {
 		return { width: 1859 * this._carScale, height: 534 * this._carScale };
 	}
 
-	getCoreInfo () {
+	get coreInfo () {
 		return {};
 	}
 

@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js';
+
 import { Houses } from '../config/Houses';
 import { PropertyHouse } from './Houses/PropertyHouse';
 import { AirportHouse } from './Houses/AirportHouse';
@@ -6,6 +7,9 @@ import { JailHouse } from './Houses/JailHouse';
 import { GoHouse } from './Houses/GoHouse';
 import { GoToJailHouse } from './Houses/GoToJailHouse';
 import { FreeHouse } from './Houses/FreeHouse';
+import { ChargeHouse } from './Houses/ChargeHouse';
+import { ChanceHouse } from './Houses/ChanceHouse';
+import { ServiceHouse } from './Houses/ServiceHouse';
 
 export class Board extends PIXI.Container {
 	constructor (dimensions, cellDimensions) {
@@ -56,7 +60,10 @@ export class Board extends PIXI.Container {
 				go: GoHouse,
 				jail: JailHouse,
 				toJail: GoToJailHouse,
-				free: FreeHouse
+				free: FreeHouse,
+				charge: ChargeHouse,
+				chance: ChanceHouse,
+				service: ServiceHouse
 			};
 
 			const HouseClass = houseTypes[type];

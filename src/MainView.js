@@ -2,7 +2,6 @@ import * as PIXI from 'pixi.js';
 import { Board } from './components/Board';
 import { PropertyHouse } from './components/Houses/PropertyHouse';
 import { Houses } from './config/Houses';
-import { AirportHouse } from './components/Houses/AirportHouse';
 
 export class MainView extends PIXI.Container {
 	constructor (dimensions) {
@@ -11,15 +10,15 @@ export class MainView extends PIXI.Container {
 		this.dimensions = dimensions;
 		this._cellSize = { width: 39, height: 55 };
 
-		this._drawOutline();
+		// this._drawOutline();
 		this._setupBoard();
 		// this._testHouse();
 
-		const airport = Houses[5];
-		const h = new AirportHouse(this._cellSize, airport.properties);
+		// const airport = Houses[5];
+		// const h = new GoHouse(this._cellSize, airport.properties);
 		// this.addChild(h);
-		h.x = 200;
-		h.y = 200;
+		// h.x = 200;
+		// h.y = 200;
 	}
 
 	_drawOutline () {

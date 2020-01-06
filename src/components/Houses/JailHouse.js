@@ -10,7 +10,7 @@ export class JailHouse extends CornerHouse {
 		return { width: 600 * this._jailBarsScale, height: 600 * this._jailBarsScale };
 	}
 
-	getCoreInfo () {
+	get coreInfo () {
 		return {};
 	}
 
